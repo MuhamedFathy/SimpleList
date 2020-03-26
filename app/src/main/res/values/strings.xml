@@ -1,0 +1,16 @@
+<resources>
+  <string name="app_name">SimpleList</string>
+  <string name="home_title">Friends</string>
+  <string name="details_title">Profile</string>
+  <string name="home_progress_loading">Loading</string>
+  <string name="no_connection_title">Oh! Sorry</string>
+  <string name="no_connection_sub_title">May be there is a connection problem</string>
+  <string name="error_occ">Something went wrong, Please try later</string>
+  <string name="user_item_phone">Phone: %1$s</string>
+  <string name="detail_username">Username: %1$s</string>
+  <string name="detail_address">Address: %1$s</string>
+  <string name="detail_email">Email: %1$s</string>
+  <string name="detail_phone">Phone: %1$s</string>
+  <string name="detail_website">Website: %1$s</string>
+  <string name="detail_company">Company: %1$s</string>
+</resources>

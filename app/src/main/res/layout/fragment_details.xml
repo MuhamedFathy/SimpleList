@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  xmlns:tools="http://schemas.android.com/tools"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent"
+  android:background="@color/offWhite">
+
+  <androidx.constraintlayout.widget.ConstraintLayout
+    android:id="@+id/detailsRoot"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:clickable="true"
+    android:focusable="true">
+
+    <TextView
+      android:id="@+id/detailName"
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      android:layout_marginStart="8dp"
+      android:layout_marginEnd="8dp"
+      android:ellipsize="end"
+      android:gravity="start"
+      android:lines="1"
+      android:padding="16dp"
+      android:textColor="@color/black"
+      android:textSize="16sp"
+      android:textStyle="bold"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toTopOf="parent"
+      tools:text="John Doe" />
+
+    <View
+      android:layout_width="0dp"
+      android:layout_height="1dp"
+      android:background="@color/lightGrey"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@id/detailName" />
+
+    <TextView
+      android:id="@+id/detailUsername"
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      android:layout_marginStart="8dp"
+      android:layout_marginEnd="8dp"
+      android:ellipsize="end"
+      android:gravity="start"
+      android:lines="1"
+      android:padding="16dp"
+      android:textColor="@color/black"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@id/detailName"
+      tools:text="Username: john" />
+
+    <View
+      android:layout_width="0dp"
+      android:layout_height="1dp"
+      android:background="@color/lightGrey"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@id/detailUsername" />
+
+    <TextView
+      android:id="@+id/detailAddress"
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      android:layout_marginStart="8dp"
+      android:layout_marginEnd="8dp"
+      android:ellipsize="end"
+      android:gravity="start"
+      android:lines="1"
+      android:padding="16dp"
+      android:textColor="@color/black"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@id/detailUsername"
+      tools:text="Address: Dummy street, New York City" />
+
+    <View
+      android:layout_width="0dp"
+      android:layout_height="1dp"
+      android:background="@color/lightGrey"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@id/detailAddress" />
+
+    <TextView
+      android:id="@+id/detailEmail"
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      android:layout_marginStart="8dp"
+      android:layout_marginEnd="8dp"
+      android:ellipsize="end"
+      android:gravity="start"
+      android:lines="1"
+      android:padding="16dp"
+      android:textColor="@color/black"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@id/detailAddress"
+      tools:text="Email: john@gmail.com" />
+
+    <View
+      android:layout_width="0dp"
+      android:layout_height="1dp"
+      android:background="@color/lightGrey"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@id/detailEmail" />
+
+    <TextView
+      android:id="@+id/detailPhone"
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      android:layout_marginStart="8dp"
+      android:layout_marginEnd="8dp"
+      android:ellipsize="end"
+      android:gravity="start"
+      android:lines="1"
+      android:padding="16dp"
+      android:textColor="@color/black"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@id/detailEmail"
+      tools:text="Phone: 23322332332" />
+
+    <View
+      android:layout_width="0dp"
+      android:layout_height="1dp"
+      android:background="@color/lightGrey"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@id/detailPhone" />
+
+    <TextView
+      android:id="@+id/detailWebsite"
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      android:layout_marginStart="8dp"
+      android:layout_marginEnd="8dp"
+      android:ellipsize="end"
+      android:gravity="start"
+      android:lines="1"
+      android:padding="16dp"
+      android:textColor="@color/black"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@id/detailPhone"
+      tools:text="Website: www.doe.com" />
+
+    <View
+      android:layout_width="0dp"
+      android:layout_height="1dp"
+      android:background="@color/lightGrey"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@id/detailWebsite" />
+
+    <TextView
+      android:id="@+id/detailCompany"
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      android:layout_marginStart="8dp"
+      android:layout_marginEnd="8dp"
+      android:ellipsize="end"
+      android:gravity="start"
+      android:lines="1"
+      android:padding="16dp"
+      android:textColor="@color/black"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@id/detailWebsite"
+      tools:text="Company: Doe Ltd." />
+
+    <View
+      android:layout_width="0dp"
+      android:layout_height="1dp"
+      android:background="@color/lightGrey"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@id/detailCompany" />
+
+    <androidx.constraintlayout.widget.Group
+      android:id="@+id/detailsLoadingGroup"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:visibility="gone"
+      app:constraint_referenced_ids="detailsProgressBar,detailsLoadingTextView" />
+
+    <ProgressBar
+      android:id="@+id/detailsProgressBar"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:translationZ="90dp"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+      android:id="@+id/detailsLoadingTextView"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="12dp"
+      android:text="@string/home_progress_loading"
+      android:textColor="@color/colorAccent"
+      android:textStyle="bold"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@id/detailsProgressBar" />
+
+    <include
+      android:id="@+id/detailErrorView"
+      layout="@layout/error_view"
+      android:layout_width="0dp"
+      android:layout_height="0dp"
+      android:visibility="gone"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toTopOf="parent" />
+  </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
