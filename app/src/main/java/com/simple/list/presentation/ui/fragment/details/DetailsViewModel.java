@@ -21,10 +21,9 @@ public class DetailsViewModel extends ViewModel {
     this.usersRepository = usersRepository;
   }
 
-  private StateLiveData<UserEntity> userState;
+  private StateLiveData<UserEntity> userState = new StateLiveData<>();
 
   public StateLiveData<UserEntity> getUserState(long userId) {
-    if (userState == null) userState = new StateLiveData<>();
     getUserInfo(userId);
     return userState;
   }
@@ -42,6 +41,6 @@ public class DetailsViewModel extends ViewModel {
   }
 
   @Override protected void onCleared() {
-    if (!compositeDisposable.isDisposed()) compositeDisposable.clear();
+    if (!compositeDisposable.isDisposed()) compositeDisposable.dispose();
   }
 }

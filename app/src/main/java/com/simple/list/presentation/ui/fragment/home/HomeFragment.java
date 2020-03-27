@@ -19,7 +19,6 @@ import butterknife.ButterKnife;
 import butterknife.Unbinder;
 import com.simple.list.R;
 import com.simple.list.SimpleApplication;
-import com.simple.list.data.remote.NetworkInterceptor;
 import com.simple.list.di.presentation.fragment.FragmentSubComponent;
 import com.simple.list.di.presentation.viewmodel.ViewModelFactoryProvider;
 import com.simple.list.presentation.ui.activity.MainActivity;
@@ -126,6 +125,10 @@ public class HomeFragment extends Fragment {
           break;
         case SUCCESS:
           loadingGroup.setVisibility(View.GONE);
+          if (listStateData.getData() == null || listStateData.getData().isEmpty()) {
+            errorView.setVisibility(View.VISIBLE);
+            return;
+          }
           adapter.updateData(listStateData.getData());
           homeRecyclerView.post(() -> {
             RecyclerView.ViewHolder viewHolder =
@@ -142,24 +145,12 @@ public class HomeFragment extends Fragment {
           break;
         case ERROR:
           loadingGroup.setVisibility(View.GONE);
-          Throwable error = listStateData.getError();
-          if (error != null) {
-            String message = error.getMessage();
-            if (message != null && message.contains(NetworkInterceptor.NETWORK_ISSUE)) {
-              if (adapter.getItemCount() == 0) {
-                errorView.setVisibility(View.VISIBLE);
-                if (isTablet) {
-                  if (getView() == null) return;
-                  View fragContainer = getView().findViewById(R.id.detail_fragment_container);
-                  if (fragContainer != null) fragContainer.setVisibility(View.GONE);
-                }
-              }
-            } else {
-              if (isAdded()) Toast.makeText(getActivity(), errorMessage, Toast.LENGTH_SHORT).show();
-            }
-          } else {
-            if (isAdded()) Toast.makeText(getActivity(), errorMessage, Toast.LENGTH_SHORT).show();
+          if (isTablet) {
+            if (getView() == null) return;
+            View fragContainer = getView().findViewById(R.id.detail_fragment_container);
+            if (fragContainer != null) fragContainer.setVisibility(View.GONE);
           }
+          if (isAdded()) Toast.makeText(getActivity(), errorMessage, Toast.LENGTH_SHORT).show();
           break;
       }
     });

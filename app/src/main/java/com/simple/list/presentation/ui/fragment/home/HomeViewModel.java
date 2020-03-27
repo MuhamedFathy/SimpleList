@@ -33,15 +33,7 @@ public class HomeViewModel extends ViewModel {
   }
 
   private void loadUsers() {
-    Disposable usersDisposable = usersRepository.loadUsersFromLocal()
-        .map(userEntities -> {
-          if (userEntities == null || userEntities.isEmpty()) {
-            loadUsersFromRemote(false);
-          } else {
-            loadUsersFromRemote(true);
-          }
-          return userEntities;
-        })
+    Disposable usersDisposable = usersRepository.loadUsersList()
         .doOnSubscribe(disposable -> usersState.postLoading())
         .subscribeOn(Schedulers.io())
         .observeOn(AndroidSchedulers.mainThread())
@@ -49,20 +41,7 @@ public class HomeViewModel extends ViewModel {
     compositeDisposable.add(usersDisposable);
   }
 
-  private void loadUsersFromRemote(boolean update) {
-    Disposable remoteDisposable = usersRepository.loadUsersFromRemote(update)
-        .doOnSubscribe(disposable -> usersState.postLoading())
-        .subscribeOn(Schedulers.io())
-        .observeOn(AndroidSchedulers.mainThread())
-        .doOnError(Timber::d)
-        .subscribe(userEntities -> usersState.postSuccess(userEntities), throwable -> {
-          usersState.postError(throwable);
-          Timber.e(throwable);
-        });
-    compositeDisposable.add(remoteDisposable);
-  }
-
   @Override protected void onCleared() {
-    if (!compositeDisposable.isDisposed()) compositeDisposable.clear();
+    if (!compositeDisposable.isDisposed()) compositeDisposable.dispose();
   }
 }

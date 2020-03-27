@@ -4,7 +4,6 @@ import android.app.Application;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.simple.list.BuildConfig;
-import com.simple.list.data.remote.NetworkInterceptor;
 import com.simple.list.di.application.scopes.ApplicationScope;
 import com.simple.list.utilities.NetworkUtils;
 import dagger.Module;
@@ -38,15 +37,13 @@ public class NetworkModule {
 
   @Provides
   @ApplicationScope OkHttpClient provideOkHttpClient(
-      HttpLoggingInterceptor loggingInterceptor,
-      NetworkInterceptor networkInterceptor
+      HttpLoggingInterceptor loggingInterceptor
   ) {
     return new OkHttpClient.Builder()
         .connectTimeout(20, SECONDS)
         .readTimeout(30, SECONDS)
         .writeTimeout(20, SECONDS)
         .retryOnConnectionFailure(true)
-        .addInterceptor(networkInterceptor)
         .addInterceptor(loggingInterceptor)
         .build();
   }
@@ -59,11 +56,7 @@ public class NetworkModule {
   }
 
   @Provides
-  @ApplicationScope NetworkInterceptor provideNetworkInterceptor(final Application application) {
-    return new NetworkInterceptor() {
-      @Override public boolean isInternetAvailable() {
-        return NetworkUtils.isNetworkAvailable(application);
-      }
-    };
+  @ApplicationScope NetworkUtils provideNetworkUtils(Application application) {
+    return new NetworkUtils(application);
   }
 }
